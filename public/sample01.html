@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="myApp">
+
+<head>
+  <title>Angular Sample 01</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h3>Sample 01</h3>
+
+    <div ng-controller="myController">
+      <user-info user="person"></user-info>
+    </div>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript">
+      angular.module("myApp", [])
+        .controller("myController", ["$scope", function($scope) {
+          $scope.person = {
+            name: "Jon",
+            surname: "Snow"
+          };
+        }])
+        .directive('userInfo', function() {
+          var directive = {
+            restrict: "E",
+            template: "<p><strong>User:</strong> {{user.name}} {{user.surname}}</p>",
+            scope: {
+              user: "=user"
+            }
+          };
+          return directive;
+        });
+    </script>
+</body>
+
+</html>

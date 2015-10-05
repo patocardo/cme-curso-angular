@@ -1,0 +1,53 @@
+<h5>Edición de Personaje a Morir</h5>
+<a href="#/" class="">Regresar a la lista</a>
+<form action="" method="">
+	<table class="table-bordered">
+		<tbody>
+			<tr>
+				<td class="">Nombre</td>
+				<td class="">
+					<input name="nombre" ng-model="personaje.name">
+				</td>
+			</tr>
+			<tr>
+				<td class="">Familia</td>
+				<td class="">
+					<select name="familia" ng-model="personaje.family">
+						<option>Bartheon</option>
+						<option>Stark</option>
+						<option>Lannister</option>
+						<option>Arry</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="">Temporada</td>
+				<td class="">
+					<select name="temporada" ng-model="personaje.season">
+						<option ng-repeat="n in [1,2,3,4,5]">{{n}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="">Capítulo</td>
+				<td class="">
+					<select name="capitulo" ng-model="personaje.chapter">
+						<option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]">{{n}}</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="">Vínculo a descripción de Wikipedia</td>
+				<td class="">
+					<input name="wikidesc" ng-model="personaje.description">
+				</td>
+			</tr>
+			<tr>
+				<td class="">Imagen de Wikipedia</td>
+				<td class="">
+					<input name="wikiphoto" ng-model="personaje.photo">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

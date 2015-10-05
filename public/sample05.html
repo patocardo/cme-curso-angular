@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="myApp">
+
+<head>
+  <title>Angular Sample 05</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h3>Sample 05</h3>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div ng-view></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript">
+      var myApp = angular.module("myApp", ["ngRoute"]);
+
+      myApp.config(function($routeProvider) {
+        $routeProvider.when("/", {
+          controller: "ListController",
+          templateUrl: "sample-view/view01.html"
+        }).when("/detail/:name", {
+          controller: "DetailController",
+          templateUrl: "sample-view/view02.html"
+        }).otherwise({
+          redirectTo: "/"
+        });
+      });
+
+      myApp.controller("ListController", ["$scope",
+        function($scope) {
+          $scope.characters = [{
+            name: 'Jon Snow',
+            family: 'Stark'
+          }, {
+            name: 'Sansa Stark',
+            family: 'Stark'
+          }, {
+            name: 'Tyrion Lannister',
+            family: 'Lannister'
+          }];
+        }
+      ]);
+
+      myApp.controller("DetailController", ["$scope", "$routeParams",
+        function($scope, $routeParams) {
+          $scope.name = $routeParams.name;
+        }
+      ]);
+    </script>
+</body>
+
+</html>

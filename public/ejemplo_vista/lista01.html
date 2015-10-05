@@ -1,0 +1,40 @@
+<h5>Lista de Personajes a Morir</h5>
+<table style="width:100%">
+	<tbody>
+		<tr>
+			<td>
+				<label for="buscar">Buscar por nombre</label>
+				<input name="buscar" id="buscar" ng-model="criterio">
+			</td>
+			<td style='text-align:right'>
+				<a href="#/edit/0">Agregar</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+				
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th class="" ng-click="">Nombre</th>
+			<th class="" ng-click="">Familia</th>
+			<th class="" ng-click="">Temporada</th>
+			<th class="" ng-click="">Capítulo</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>			
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="(key, item) in characters | orderBy:name">
+			<td><a href="#/detail/{{key}}">{{item.name}}</a></td>
+			<td>{{item.family}}</td>
+			<td>{{item.season}}</td>
+			<td>{{item.chapter}}</td>
+			<td><a href="#/edit/{{key}}" title="editar">&#9998;</a></td>
+			<td>
+			<div onclick="remover(key)" title="borrar" style="cursor:pointer">B</div>
+			</td>
+		</tr>
+	</tbody>
+</table>

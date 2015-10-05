@@ -1,0 +1,10 @@
+<h5>View 01</h5>
+
+<div>
+  <ul>
+    <li ng-repeat="character in characters | orderBy: name">{{character.name}} (
+      <strong>{{character.family | uppercase}}</strong>)
+      <a href="#/detail/{{character.name}}">Detail</a>
+    </li>
+  </ul>
+</div>
